@@ -58,7 +58,7 @@ class GoogleCloudAIEngine:
                 fallback_response = requests.post(self.fallback_url, headers=headers, json=data, timeout=10)
                 result = fallback_response.json()
                 # নেবিয়াস এআই এর রেসপন্স পার্স করা
-                ai_output = result['choices'][0]['message']['content']
+                ai_output = result['choices']['message']['content']
                 return json.loads(ai_output)
                 
             except Exception as fallback_error:
