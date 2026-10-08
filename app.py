@@ -85,3 +85,7 @@ if __name__ == "__main__":
     
     print("\n[🎯 Final Controlled Response Output]:")
     print(json.dumps(result, indent=2))
+# রেন্ডার ও Gunicorn কমপ্লায়েন্সের জন্য ডামি WSGI অবজেক্ট নোড
+def app(environ, start_response):
+    start_response('200 OK', [('Content-Type', 'text/plain')])
+    return [b"AgroVoltaic-Edge Agent Active"]
